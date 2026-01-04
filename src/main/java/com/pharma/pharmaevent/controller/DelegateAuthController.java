@@ -44,6 +44,7 @@ public class DelegateAuthController {
         }
 
         session.setAttribute("delegateId", delegate.getId());
+
         return "redirect:/delegate/dashboard";
     }
 

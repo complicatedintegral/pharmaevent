@@ -30,12 +30,13 @@
         .btn {
             margin-top: 20px;
             padding: 12px 20px;
-            background: #07078a;
+            background: #007bff;
 			font-weight: bold;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+			text-align: center;
         }
 		a {
 			text-decoration: none;
@@ -48,9 +49,7 @@
 
 <div class="container">
 
-    <a href="/admin/dashboard">
-		<button type="button" class="btn">Back to Dashboard </button>
-	</a>
+	<a th:href="@{/admin/dashboard}" class="btn">Back to Dashboard</a>
 
     <h2>Mark Attendance</h2>
 	
@@ -92,7 +91,7 @@
 	</form>
 
 
-    <form method="post" action="/admin/event/update">
+    <form method="post" th:action="@{/admin/event/update}">
 		
 		<input type="hidden"
 				name="eventId"

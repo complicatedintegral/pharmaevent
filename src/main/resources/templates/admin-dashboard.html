@@ -83,7 +83,7 @@
         <tr th:each="event : ${events}">
             <td th:text="${event.eventName}">Event Name</td>
             <td>
-                <a class="btn" style="font-size: 12px;"
+                <a class="btn" style="font-size: 12px font-weight: bold;"
                    th:href="@{/admin/event/{id}(id=${event.id})}">
                     Mark Attendance
                 </a>
