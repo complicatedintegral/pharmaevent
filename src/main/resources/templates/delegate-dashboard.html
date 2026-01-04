@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delegate Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .logout {
+            text-decoration: none;
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #343a40;
+            color: white;
+        }
+
+        .present {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .absent {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h2>
+            Welcome, <span th:text="${delegate.name}"></span>
+        </h2>
+        <a href="/delegate/logout" class="logout">Logout</a>
+    </div>
+
+    <!-- INFO CARD -->
+    <div class="card">
+        <p>
+            <strong>Transaction ID:</strong>
+            <span th:text="${delegate.registrationId}"></span>
+        </p>
+
+        <p><strong>Event Participation & Attendance:</strong></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Event</th>
+                <th>Attendance Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="p : ${events}">
+                <td th:text="${p.event.eventName}">Event Name</td>
+
+                <td>
+                    <span th:if="${p.checked}" class="present">Present</span>
+                    <span th:if="${!p.checked}" class="absent">Absent</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

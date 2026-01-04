@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+        }
+		
+		.logout {
+		    text-decoration: none;
+		    color: #dc3545;
+		    font-weight: bold;
+		}
+		
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+			min-width: 600px;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+			vertical-align: middle;
+        }
+        th {
+            background: #343a40;
+            color: white;
+        }
+        .btn {
+            padding: 8px 14px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        .logout {
+            float: right;
+            text-decoration: none;
+            color: #dc3545;
+        }
+		.table-wrapper{
+			width: 100%;
+			overflow-x: auto;
+		}
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="/admin/logout" class="logout">Logout</a>
+
+    <h2>Admin Dashboard</h2>
+	
+	<div class="table-wrapper">
+    <table>
+        <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.eventName}">Event Name</td>
+            <td>
+                <a class="btn" style="font-size: 12px;"
+                   th:href="@{/admin/event/{id}(id=${event.id})}">
+                    Mark Attendance
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+	</div>
+
+</div>
+
+</body>
+</html>
