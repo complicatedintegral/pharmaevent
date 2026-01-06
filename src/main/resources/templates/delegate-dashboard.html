@@ -9,6 +9,14 @@
             font-family: Arial, sans-serif;
             background: #f5f7fa;
             margin: 0;
+			
+			background-image: url("/images/conference-bg.webp");
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			
+			min-height: 100vh;
         }
 
         .container {
@@ -35,7 +43,7 @@
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.85);
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -74,16 +82,15 @@
 
 <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
-        <h2>
-            Welcome, <span th:text="${delegate.name}"></span>
-        </h2>
-        <a href="/delegate/logout" class="logout">Logout</a>
-    </div>
-
     <!-- INFO CARD -->
     <div class="card">
+		<!-- HEADER -->
+		<div class="header">
+		    <h2>
+		        Welcome, <span th:text="${delegate.name}"></span>
+		    </h2>
+		    <a href="/delegate/logout" class="logout">Logout</a>
+		</div>
         <p>
             <strong>Transaction ID:</strong>
             <span th:text="${delegate.registrationId}"></span>

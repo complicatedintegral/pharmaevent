@@ -9,8 +9,37 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f5f7fa;
+          	
+			/* Background image */
+		    background-image: url("/images/conference-bg.webp");
+		    background-size: cover;
+		    background-position: center center;
+		    background-repeat: no-repeat;
+		    background-attachment: fixed;
+			
+			min-height: 100vh;
         }
+		
+		.overlay {
+		    background: rgba(255, 255, 255, 0.85);
+		    padding: 40px 20px;
+		    border-radius: 8px;
+		}
+		
+		.logos {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    gap: 30px;
+		    margin-bottom: 25px;
+		    flex-wrap: wrap;
+		}
+
+		.logos img {
+		    height: 90px;
+		    max-width: 100%;
+		    object-fit: contain;
+		}
 
         .container {
             max-width: 900px;
@@ -80,7 +109,8 @@
         }
 
         /* Show dropdown on hover (desktop) */
-        .menu:hover .menu-content {
+        .menu:hover .menu-content,
+		.menu-content:hover {
             display: block;
         }
 
@@ -110,41 +140,61 @@
         .btn:hover {
             opacity: 0.9;
         }
+		
+		@media (max-width: 768px) {
+		    body {
+		        background-position: center top;
+		        background-attachment: scroll;
+		    }
+			
+			.logos img {
+				height: 70px;
+			}
+		}
+
     </style>
 </head>
 
 <body>
 
 <div class="container">
-    <h1>Pharma Quora 2026</h1>
-
-    <p class="info">
-        Conference on Pharmaceutical Sciences<br>
-        February 2026 • Manipal
-    </p>
-
-    <!-- Dropdown Menu -->
-    <div class="menu">
-        <button class="menu-btn">Event Menu</button>
-        <div class="menu-content">
-			<a href="https://forms.gle/mBQqQ3iWfiM58NPM9" target="_blank" rel="noopener noreferrer">
-				Registration Link
-			</a>
-            <a href="#">Event Brochure</a>
-            <a href="#">Schedule</a>
-            <a href="#">Poster Presentation – Abstract Template</a>
-            <a href="#">Poster Presentation – Poster Template</a>
-            <a href="#">Guidelines / Rulebook</a>
-            <a href="#">Event Photos</a>
-            <a href="#">E-Certificates</a>
-        </div>
-    </div>
-
-    <!-- Login buttons -->
-    <div class="buttons">
-        <a href="/delegate/login" class="btn delegate">Delegate Login</a>
-        <a href="/admin/login" class="btn admin">Admin Login</a>
-    </div>
+	<div class="overlay">
+		<div class="logos">
+		    <img src="/images/MCOPS-Logo.webp" alt="MCOPS Logo">
+		    <img src="/images/MAPS-Logo.webp" alt="MAPS Logo">
+		</div>
+		
+	    <h1>Pharma Quora 2026</h1>
+	
+	    <p class="info">
+	        Conference on Pharmaceutical Sciences<br>
+	        February 2026 • Manipal
+	    </p>
+	
+	    <!-- Dropdown Menu -->
+	    <div class="menu">
+	        <button class="menu-btn">Event Menu</button>
+	        <div class="menu-content">
+				<a href="https://forms.gle/mBQqQ3iWfiM58NPM9" target="_blank" rel="noopener noreferrer">
+					Registration Link
+				</a>
+	            <a href="/pdfs/brochure.pdf" target="_blank" rel="noopener noreferrer">
+					Event Brochure
+				</a>
+	            <a href="https://drive.google.com/drive/folders/1iWKsaI6XwCMQv_XCZsB-Mj5ebq9vya_O" target="_blank" rel="noopener noreferrer">
+					Guidelines
+				</a>
+	            <a href="#">Event Photos (Not Available)</a>
+	            <a href="#">E-Certificates (Not Available)</a>
+	        </div>
+	    </div>
+	
+	    <!-- Login buttons -->
+	    <div class="buttons">
+	        <a href="/delegate/login" class="btn delegate">Delegate Login</a>
+	        <a href="/admin/login" class="btn admin">Admin Login</a>
+    	</div>
+	</div>
 </div>
 
 </body>

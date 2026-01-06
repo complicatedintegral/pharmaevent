@@ -1,4 +1,4 @@
-package com.pharma.pharmaevent;
+   package com.pharma.pharmaevent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
